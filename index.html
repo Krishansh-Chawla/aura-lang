@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraLang - A Magical Toy Programming Language</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🔮 AuraLang</div>
+        <nav>
+            <button onclick="switchView('playground')" id="nav-playground" class="active">Playground</button>
+            <button onclick="switchView('docs')" id="nav-docs">Documentation</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PLAYGROUND VIEW -->
+        <div id="playground-view" class="view active">
+            <div class="playground-container">
+                <h2>Playground</h2>
+                <div class="toolbar">
+                    <button class="btn btn-run" onclick="runCode()">Cast & Run</button>
+                    <button class="btn btn-clear" onclick="clearConsole()">Clear</button>
+                </div>
+                <textarea id="codeEditor">summon
+    spell counter = 0;
+    ritual (counter < 5) {
+        counter = counter + 1;
+        prophecy (counter == 3) {
+            next rune;
+        }
+        prophecy (counter == 5) {
+            break rune;
+        }
+        cast counter;
+    }
+    cast "Ritual complete!";
+banish</textarea>
+                <h3>Spell Output</h3>
+                <div id="output" class="console">Ready to cast spells...</div>
+            </div>
+        </div>
+
+        <!-- DOCUMENTATION VIEW -->
+        <div id="docs-view" class="view docs">
+            <h1>AuraLang Documentation</h1>
+            <p>AuraLang is a magical, dynamically typed toy programming language built around fantasy spells, runes, and arcane rituals.</p>
+
+            <h2>General Structure</h2>
+            <p>Every spellbook program must begin with <code>summon</code> as its entrypoint and conclude with <code>banish</code>. Anything outside these boundaries is ignored by the archmage.</p>
+            <pre>This will be ignored by the compiler
+
+summon
+    // Write your magical script here
+banish
+
+This too</pre>
+
+            <h2>Initializing Variables (<code>spell</code>)</h2>
+            <p>Variables are declared and initialized using the <code>spell</code> keyword. Subsequent updates can be performed directly using the variable name.</p>
+            <pre>summon
+    spell energy = 50;
+    spell element = "fire";
+    energy = energy + 10;
+banish</pre>
+
+            <h2>Printing Output (<code>cast</code>)</h2>
+            <p>Use the <code>cast</code> keyword to manifest outputs onto the scrying console. You can print strings, numbers, booleans, or comma-separated sequences.</p>
+            <pre>summon
+    cast "Portal Opened successfully";
+    spell mana = 100;
+    cast mana, "units remaining";
+banish</pre>
+
+            <h2>Conditionals / If-Else (<code>prophecy</code> & <code>oracle</code>)</h2>
+            <p>AuraLang supports branching logic using <code>prophecy (condition) { ... }</code> which executes if the condition evaluates to true. The optional <code>oracle { ... }</code> block executes otherwise.</p>
+            <pre>summon
+    spell power = 85;
+    prophecy (power > 90) {
+        cast "High Power Surge!";
+    } oracle {
+        cast "Normal Power Levels.";
+    }
+banish</pre>
+
+            <h2>Loops / Rituals (<code>ritual</code>)</h2>
+            <p>Statements inside a <code>ritual (condition) { ... }</code> block are executed repeatedly as long as the specified condition evaluates to true.</p>
+            <pre>summon
+    spell a = 0;
+    ritual (a < 3) {
+        a = a + 1;
+        cast a;
+    }
+banish</pre>
+
+            <h2>Break & Continue (<code>break rune</code> & <code>next rune</code>)</h2>
+            <p>Inside loops, you can shatter execution early using <code>break rune</code> or skip to the next cycle using <code>next rune</code>.</p>
+            <pre>summon
+    spell x = 0;
+    ritual (x < 5) {
+        x = x + 1;
+        prophecy (x == 2) {
+            next rune;
+        }
+        prophecy (x == 4) {
+            break rune;
+        }
+        cast x;
+    }
+banish</pre>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 AuraLang Archive
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
